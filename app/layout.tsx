@@ -6,19 +6,19 @@ import { Analytics } from "./components/analytics";
 
 export const metadata: Metadata = {
 	title: {
-		default: "jakegiguere.com",
-		template: "%s | jakegiguere.com",
+		default: "Jake Giguere's Portfolio",
+		template: "%s | Jake Giguere",
 	},
 	description: "MS candidate for Data Analytics",
 	openGraph: {
-		title: "chronark.com",
+		title: "https://jake-giguere.vercel.app",
 		description:
 			"MS candidate for Data Analytics",
-		url: "https://chronark.com",
-		siteName: "chronark.com",
+		url: "https://jake-giguere.vercel.app/",
+		siteName: "https://jake-giguere.vercel.app",
 		images: [
 			{
-				url: "https://chronark.com/og.png",
+				url: "https://jake-giguere.vercel.app",
 				width: 1920,
 				height: 1080,
 			},
