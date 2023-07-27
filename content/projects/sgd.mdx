@@ -1,113 +1,134 @@
 ---
-title: Stochastic Gradient Descent
-description: A ML optimization algorithm, used in ML co-op Fall 2022. Currently working on publication*
+
+title: Convergence of Stochastic Gradient Ascent by Multiprocessing(Parallelization)
+description: Machine Learning Research as of Sept 2022-2023 Stochastic Gradient Ascent with Mini-batch optimization
 date: "2022-09-18"
 url: 
 published: true
-  
+
 ---
-Manage Upstash resources in your terminal or CI.
-
-![](https://raw.githubusercontent.com/upstash/cli/main/img/banner.svg)
-
-![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/upstash/cli)
 [![Downloads/week](https://img.shields.io/npm/dw/lstr.svg)](https://npmjs.org/package/@upstash/cli)
 
-# Installation
+## Abstract
 
-## npm
+Steepest ascent/descent and stochastic gradient ascent/descent are widely used techniques to approximate parameters for multiple linear regression, logistic regression, and artificial neural networks to name a few.  However, one of the problems with stochastic gradient ascent/descent is that in most cases it does not converge and rather wanders around the approximate solution.  To get convergence, we parallelized (multithreaded) stochastic gradient ascent for logistic regression and took the average of the updated parameters from each thread.  This average updated parameter was then used in the next iteration of the stochastic gradient approach.  This not only speeds up the calculation but also is an effective way to get convergence for stochastic gradient approaches.  NFL team data for the winning percentage verses points for and points against was used to analyze and justify this approach.   
 
-You can install upstash's cli directly from npm
 
-```bash
-npm i -g @upstash/cli
-```
 
-It will be added as `upstash` to your system's path.
+# Introduction
 
-## Compiled binaries:
+Stochastic steepest gradient ascent (SGA) is a well know numerical method which is used to solve logistic regression.  However, one of the problems with this method is that it bounces around the solution and may times never converges to the approximate solution for a good initial guess.  On the other hand, the standard steepest gradient ascent will converge smoothly to the approximate solution with a good initial guess.  This convergence behavior is show below for a simple logistic model with only parameters.
 
-`upstash` is also available from the
-[releases page](https://github.com/upstash/upstash-cli/releases/latest) compiled
-for windows, linux and mac (both intel and m1).
+<div style={{ display: 'flex', justifyContent: 'space-between' }}>
+  <img src="https://private-user-images.githubusercontent.com/54954127/256388837-42749b2d-ce45-4b13-bbc6-f85b7e6cefdd.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTEiLCJleHAiOjE2OTA0MTY0NTcsIm5iZiI6MTY5MDQxNjE1NywicGF0aCI6Ii81NDk1NDEyNy8yNTYzODg4MzctNDI3NDliMmQtY2U0NS00YjEzLWJiYzYtZjg1YjdlNmNlZmRkLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFJV05KWUFYNENTVkVINTNBJTJGMjAyMzA3MjclMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjMwNzI3VDAwMDIzN1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTkxZTU0YzdhNDBmZjgxY2E0YTFjZTUzYjFkN2MyMDY2Mzk3ZDc3OGM0YTE2ZjQ3MDAyZjg5YmVkZDljODc0YTkmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.x6_wDZqNn2OA_6Eu6j9DKNui9hZOPr8JxZW9eqfLz5Y" alt="Image 1" style={{ width: '45%' }} />
+  <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/54954127/256390194-13c03af5-4474-4f92-a824-ccc1d7ba06f6.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20230727%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230727T001308Z&X-Amz-Expires=300&X-Amz-Signature=8bb11189e20b1c13111c73aa479f1817a2cad97e87d2e8481a8e28eae8e3a38a&X-Amz-SignedHeaders=host&actor_id=54954127&key_id=0&repo_id=670834055" alt="Image 2" style={{ width: '45%' }} />
+</div>
 
-# Usage
 
-```bash
-> upstash
+## Hypothesis
 
-  Usage:   upstash    
-  Version: development
+For this study we propose a parallelized version of stochastic steepest gradient ascent (SGA)  for logistic regression, where batches are divided among multiple threads, and the parameter updates are synchronized periodically. We conduct a series of experiments on various datasets and benchmark the parallelized stochastic SGA against the standard SGA implementation. Our results demonstrate that the parallelized approach significantly reduces the execution time while maintaining similar convergence behavior to SGA. Furthermore, we analyze the impact of different thread configurations and mini-batch sizes on the convergence performance. These findings provide valuable insights for researchers and practitioners seeking to accelerate the training process of machine learning models using parallel computing techniques. 
 
-  Description:
 
-    Official cli for Upstash products
+# Gradient Ascent
 
-  Options:
-
-    -h, --help               - Show this help.                                                                           
-    -V, --version            - Show the version number for this program.                                                 
-    -c, --config   <string>  - Path to .upstash.json file
-
-  Commands:
-
-    auth   - Login and logout                   
-    redis  - Manage redis database instances    
-    kafka  - Manage kafka clusters and topics   
-    team   - Manage your teams and their members
-
-  Environment variables:
-
-    UPSTASH_EMAIL    <string>  - The email you use on upstash
-    UPSTASH_API_KEY  <string>  - The api key from upstash
-```
-
-## Authentication
-
-When running `upstash` for the first time, you should log in using
-`upstash auth login`. Provide your email and an api key.
-[See here for how to get a key.](https://docs.upstash.com/redis/howto/developerapi#api-development)
-
-As an alternative to logging in, you can provide `UPSTASH_EMAIL` and
-`UPSTASH_API_KEY` as environment variables.
-
-## Usage
-
-Let's create a new redis database:
+Gradient Ascent is an iterative algorithm used for optimizing the error squared between the proposed functions (proposed parameters for the function) outputs and the actual outputs.  The general cost function and error function is as shown.
 
 ```bash
-> upstash redis create --name=my-db --region=eu-west-1
-  Database has been created
+import numpy as np
 
-  database_id          a3e25299-132a-45b9-b026-c73f5a807859
-  database_name        my-db
-  database_type        Pay as You Go
-  region               eu-west-1
-  type                 paid
-  port                 37090
-  creation_time        1652687630
-  state                active
-  password             88ae6392a1084d1186a3da37fb5f5a30
-  user_email           andreas@upstash.com
-  endpoint             eu1-magnetic-lacewing-37090.upstash.io
-  edge                 false
-  multizone            false
-  rest_token           AZDiASQgYTNlMjUyOTktMTMyYS00NWI5LWIwMjYtYzczZjVhODA3ODU5ODhhZTYzOTJhMTA4NGQxMTg2YTNkYTM3ZmI1ZjVhMzA=
-  read_only_rest_token ApDiASQgYTNlMjUyOTktMTMyYS00NWI5LWIwMjYtYzczZjVhODA3ODU5O_InFjRVX1XHsaSjq1wSerFCugZ8t8O1aTfbF6Jhq1I=
+    def gradient(self, X, y, theta):
+        m = len(y)
+        h = self.logit(np.dot(X, theta))
+        grad = (1 / m) * np.dot(X.T, (h - y))
+        return grad
 
-
-  You can visit your database details page: https://console.upstash.com/redis/a3e25299-132a-45b9-b026-c73f5a807859
-
-  Connect to your database with redis-cli: redis-cli -u redis://88ae6392a1084d1186a3da37fb5f5a30@eu1-magnetic-lacewing-37090.upstash.io:37090
 ```
 
-## Output
+ ## Cost function
+where 𝑚 is the number of rows,  $$\vec{x}^{(i)}$$ is the vector of input data for row i, $$y_i$$ is the output for row i while $$h(\vec{x}^{(i)}, \vec{\theta})$$ is the function we are trying to fit to the data. The gradient of this cost function for logistic regression is well know and can be generalized as
 
-Most commands support the `--json` flag to return the raw api response as json,
-which you can parse and automate your system.
+$$
+1. \
+\frac{\partial J}{\partial \theta_k} = \sum_{i=0}^m \left( (h(\theta^T \cdot x^{(i)}) - y_i) \cdot x_k^{(i)} \right)
+$$
+
+
+ ```bash
+import numpy as np
+
+    def cost_function(self, X, y, theta):
+        m = len(y)
+        h = self.logit(np.dot(X, theta))
+        y_array = np.array(y)  # Convert list to numpy array
+        epsilon = 1e-7  # Small constant to prevent log(0)
+        cost = (-1 / m) * np.sum(y_array.reshape(-1, 1) * np.log(h +
+                                                                 epsilon) + (1 - y_array.reshape(-1, 1)) * np.log(1 - h + epsilon))
+        return cost
+```
+
+
+Where k is the kth parameter and for k=1 a column of ones was added to utilize the dot product in our calculations. The iterative scheme for stochastic gradient ascent is shown below
+
+
+# Iterative Shceme For Gradient Ascent
+
+
+
+$$
+2. \
+\begin{bmatrix}
+\theta_0^n \\
+\theta_1^n \\
+\theta_2^n
+\end{bmatrix}
+=
+\begin{bmatrix}
+\theta_0^{n-1} \\
+\theta_1^{n-1} \\
+\theta_2^{n-1}
+\end{bmatrix}
++ \alpha \nabla J(\theta)
+$$
+
+
+For stochastic gradient ascent instead of running of the sum in equation (2) we update the parameters each time a row  of data is used or consider various rows of data (batches) to update the parameters.
+
+## Parallelization
+
+Multi-core CPUs and can lead to near-linear speed-ups relative to the number of available cores. However, it's important to manage inter-process communication and synchronization
+
+
+## Mini-batches
+Processing of mini-batches in Stochastic Gradient Ascent (SGA) can significantly accelerate training times for large datasets. By distributing mini-batches across multiple processors, each processor can independently compute the gradient and update the model parameters.
 
 ```bash
-> upstash  redis create --name=test2113 --region=us-central1 --json | jq '.endpoint'
 
- "gusc1-clean-gelding-30208.upstash.io"
+from multiprocessing import Pool
+
+    num_ranks = 10
+    processes = []
+
+    # Calculate the size of each mini-batch
+    mini_batch_size = len(StochasticGradient().target) // num_ranks
+
+    # Create a list of arguments for each mini-batch
+    args_list = []
+    for i in range(num_ranks):
+        data = StochasticGradient()
+        start = i * mini_batch_size
+        end = (i + 1) * mini_batch_size if i < num_ranks - \
+            1 else len(data.target)
+        args_list.append((data, start, end, 1000, mini_batch_size))
+
+    # Use a process pool to process each mini-batch in parallel
+    with Pool(num_ranks) as pool:
+        results = pool.map(run_sgd, args_list)
+
 ```
+
+## Results
+
+## Conclusion
+
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/upstash/cli)

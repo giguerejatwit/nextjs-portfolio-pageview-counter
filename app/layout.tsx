@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 	openGraph: {
 		title: "chronark.com",
 		description:
-			"Software engineer at upstash.com and founder of planetfall.io",
+			"MS candidate for Data Analytics",
 		url: "https://chronark.com",
 		siteName: "chronark.com",
 		images: [
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
 		},
 	},
 	twitter: {
-		title: "Chronark",
+		title: "Jake",
 		card: "summary_large_image",
 	},
 	icons: {

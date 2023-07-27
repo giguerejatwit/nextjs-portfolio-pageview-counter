@@ -1,7 +1,9 @@
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
 import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
+import rehypeKatex from "rehype-katex";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 /** @type {import('contentlayer/source-files').ComputedFields} */
@@ -66,8 +68,9 @@ export default makeSource({
 	contentDirPath: "./content",
 	documentTypes: [Page, Project],
 	mdx: {
-		remarkPlugins: [remarkGfm],
+		remarkPlugins: [remarkGfm, remarkMath],
 		rehypePlugins: [
+			rehypeKatex, 
 			rehypeSlug,
 			[
 				rehypePrettyCode,
