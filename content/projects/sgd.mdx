@@ -45,7 +45,7 @@ import numpy as np
 
 ```
 
- ## Cost function
+ ## Cost Function
 where 𝑚 is the number of rows,  $$\vec{x}^{(i)}$$ is the vector of input data for row i, $$y_i$$ is the output for row i while $$h(\vec{x}^{(i)}, \vec{\theta})$$ is the function we are trying to fit to the data. The gradient of this cost function for logistic regression is well know and can be generalized as
 
 $$
@@ -99,7 +99,7 @@ For stochastic gradient ascent instead of running of the sum in equation (2) we 
 Multi-core CPUs and can lead to near-linear speed-ups relative to the number of available cores. However, it's important to manage inter-process communication and synchronization
 
 
-## Mini-batches
+## Mini-Batches
 Processing of mini-batches in Stochastic Gradient Ascent (SGA) can significantly accelerate training times for large datasets. By distributing mini-batches across multiple processors, each processor can independently compute the gradient and update the model parameters.
 
 ```bash
