@@ -4,7 +4,7 @@ title: Convergence of Stochastic Gradient Ascent by Multiprocessing(Parallelizat
 description: Machine Learning Research as of Sept 2022-2023 Stochastic Gradient Ascent with Mini-batch optimization
 date: "2022-09-18"
 url:
-repository: https://github.com/giguerejatwit/Wine-Quality
+repository: giguerejatwit/Wine-Quality
 published: true
 
 ---
@@ -12,7 +12,7 @@ published: true
 
 ## Abstract
 
-Steepest ascent/descent and stochastic gradient ascent/descent are widely used techniques to approximate parameters for multiple linear regression, logistic regression, and artificial neural networks to name a few.  However, one of the problems with stochastic gradient ascent/descent is that in most cases it does not converge and rather wanders around the approximate solution.  To get convergence, we parallelized (multithreaded) stochastic gradient ascent for logistic regression and took the average of the updated parameters from each thread.  This average updated parameter was then used in the next iteration of the stochastic gradient approach.  This not only speeds up the calculation but also is an effective way to get convergence for stochastic gradient approaches.  NFL team data for the winning percentage verses points for and points against was used to analyze and justify this approach.   
+Steepest ascent/descent and stochastic gradient ascent/descent are widely used techniques to approximate parameters for multiple linear regression, logistic regression, and artificial neural networks to name a few.  However, one of the problems with stochastic gradient ascent/descent is that in most cases it does not converge and rather wanders around the approximate solution.  To get convergence, we parallelized (multithreaded) stochastic gradient ascent for logistic regression and took the average of the updated parameters from each thread.  This average updated parameter was then used in the next iteration of the stochastic gradient approach.  This not only speeds up the calculation but also is an effective way to get convergence for stochastic gradient approaches.  Wine data for the Quality was used to analyze and justify this approach.   
 
 
 
