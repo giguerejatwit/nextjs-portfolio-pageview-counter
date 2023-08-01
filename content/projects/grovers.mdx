@@ -58,7 +58,7 @@ $$
 $$
 
 
-he Toffoli gate, being a controlled-controlled-not gate, can be used to implement this phase inversion and act as the Oracle in Grover's algorithm when appropriately combined with other quantum gates.
+The Toffoli gate, being a controlled-controlled-not gate, can be used to implement this phase inversion and act as the Oracle in Grover's algorithm when appropriately combined with other quantum gates.
 Although the Toffoli gate is an important component in constructing the Oracle and Grover diffusion operator, its implementation can be challenging in certain physical quantum computing architectures. The reason is that the Toffoli gate requires three-qubit interactions, which can be more susceptible to noise and errors than two-qubit gates
 
 ## Number of Iterations
@@ -66,9 +66,6 @@ Although the Toffoli gate is an important component in constructing the Oracle a
 The number of iterations required by Grover's algorithm to find the target item is approximately 
 $$\sqrt{N}$$. So, the total number of queries made is proportional to $$\sqrt{N}$$, which is significantly faster than the classical $$N/2$$ queries.
 
-## Measuring the Result
-
-After a certain number of iterations (approximately $$\sqrt{N}$$), a measurement is performed on the quantum state, collapsing it to one of the possible states. The probability of measuring the target item is high, increasing the chances of finding the correct answer.
 ## Mean Inversion
 
 Mean inversion is a fundamental step in Grover's algorithm that helps concentrate the amplitudes of the marked (target) item and disperse the amplitudes of the unmarked items. This step is performed using an operation called the "diffusion operator" or "mean inversion operator."
@@ -79,7 +76,7 @@ Then, it reflects each amplitude around the average, effectively amplifying the 
 Mathematically, if $$|s \rangle$$ represents the uniform superposition of all possible states and $$N$$ is the total number of states (items in the database), then the mean inversion operator, denoted by $$D$$, is defined as:
 
 $$
-D = 2A - I or\ D = -I + 2A
+D = 2A - I\\  or\\  D = -I + 2A
 $$
 
 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -131,7 +128,7 @@ Mean inversion is applied to the quantum state after the oracle operation, effec
 Phase inversion, also known as the "oracle," is the quantum operation that marks the target item in the superposition of states. It is a critical component of Grover's algorithm because it introduces a negative phase to the amplitude of the target item.
 The oracle operation can be represented by a unitary matrix $$U_i$$, where the subscript "$$i$$" denotes the index of the target item. When applied to the quantum state $$| \psi \rangle$$, the oracle changes the sign of the amplitude corresponding to the target item:
 
-$$U_i | \psi \rangle = | \psi \rangle$$ for all states | \psi \rangle except the target item, where
+$$U_i | \psi \rangle = | \psi \rangle$$ for all states $$| \psi \rangle$$ except the target item, where
 
 $$U_i | \text{target} \rangle = -| \text{target} \rangle$$
 
