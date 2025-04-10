@@ -8,9 +8,7 @@ last updated: 26-Jul-2023
 </div>
 
 <br/>
-Linked to Resume:
 
-![resume2023](https://raw.githubusercontent.com/giguerejatwit/nextjs-portfolio-pageview-counter/main/public/Resume2023.png)
 
 
 
