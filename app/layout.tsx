@@ -9,11 +9,11 @@ export const metadata: Metadata = {
 		default: "Jake Giguere's Portfolio",
 		template: "%s | Jake Giguere",
 	},
-	description: "MS candidate for Data Analytics",
+	description: "AI/ML Developer at AFRL | M.S. Applied Data Analytics",
 	openGraph: {
 		title: "https://jake-giguere.vercel.app",
 		description:
-			"MS candidate for Data Analytics",
+			"AI/ML Developer at AFRL",
 		url: "https://jake-giguere.vercel.app/",
 		siteName: "https://jake-giguere.vercel.app",
 		images: [
