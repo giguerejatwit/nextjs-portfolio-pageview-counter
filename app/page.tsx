@@ -35,23 +35,34 @@ export default function Home() {
 			<div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 			<div className="my-16 text-center animate-fade-in">
 				<h2 className="text-sm text-zinc-500 p-5">
-					Bachelors of Science in Computer Science and Applied Mathematics at{" "}
+					AI/ML Engineer at {" "}  
 					<Link
 						target="_blank"
-						href="https://wentworth.edu"
+						href="https://www.afrl.af.mil/"
 						className="underline duration-500 hover:text-zinc-300"
 					>
-						Wentworth Institute of Technology
+					AFRL 
 					</Link>
-
 					<br />
-					MS in Data Analytics candidate at {" "}
+					M.S. in Applied Data Analytics from {" "}
 					<Link
 						target="_blank"
 						href="https://www.bu.edu/met/degrees-certificates/ms-computer-science-data-analytics/"
 						className="underline duration-500 hover:text-zinc-300"
 					>
 						Boston University
+					</Link>
+					
+
+					<br />
+					B.S. in Computer Science and Applied Mathematics from {" "}
+					
+					<Link
+						target="_blank"
+						href="https://wentworth.edu"
+						className="underline duration-500 hover:text-zinc-300"
+					>
+						Wentworth Institute of Technology
 					</Link>
 
 				</h2>
