@@ -1,3 +1,11 @@
+---
+title: "GAT-DQN"
+description: Graph Attention Deep Q-Learning Network
+date: "2025-03-28"
+url: 
+repository: 
+published: true
+---
 # Graph Attention Deep Q-Network (GDQN)
 
 This directory contains the implementation of the Graph Attention Deep Q-Network (GDQN) agent and related utilities.
@@ -114,22 +122,15 @@ $$R = R + r_i$$
 ## Getting Started
 
 1. **Install Dependencies**  
-   Ensure you have installed the required dependencies for the AIRO project. This includes the setup.py file to ensure all modules can be imported. 
+   Ensure you have installed the required dependencies for the project. This includes the setup.py file to ensure all modules can be imported. 
    
    ```pip install -e .```
  
 2. **Run Training**  
-   from the AIRO directory, use the provided training scripts to train your GDQN agent. Example:
+   from the base directory, use the provided training scripts to train your GDQN agent. Example:
    ```bash
    python RL/GDQN/agent.py 
    ```
-
-## Directory Structure
-- `data_as_graph.py`: converts data into a graph 
-- `envs/`: Contains the custom OpenAI Gymnasium environment.
-- `agent.py`: Script to train GDQN models.
-- `utils/`: Helper functions and utilities specific to GDQN.
-
 
 ## References
 
