@@ -1,0 +1,38 @@
+---
+title: "TAB'd"
+description: A social matchmaking app for bars. Check in at a venue, browse people, buy someone a drink anonymously, and match IRL.
+date: "2025-02"
+url: https://tabd.app
+published: true
+---
+
+# TAB'd — Buy Someone a Drink. Meet IRL.
+
+A social matchmaking app that connects people at bars through the simple act of buying a drink.
+
+## How It Works
+
+1. **Check in** at a venue via QR code
+2. **Browse** who's there — swipe through profiles (Tinder-style cards)
+3. **Send a drink** — pick a person, choose from the venue's menu, confirm
+4. **Anonymous delivery** — the bar prepares it with a drink number
+5. **Match** — when they pick it up, you're connected
+6. **Chat** — start a conversation with your match
+
+## Technical Stack
+
+- **Frontend**: React Native + Expo (SDK 52) with TypeScript
+- **Navigation**: Expo Router (file-based routing)
+- **Backend**: Supabase (auth, real-time subscriptions, PostgreSQL)
+- **Payments**: Stripe integration
+- **State**: Zustand for state management
+- **UX**: Tinder-style card swiping with gesture handling, photo galleries, profile details (zodiac, height, interests, drink preferences)
+
+## Features
+
+- Real-time drink notifications via Supabase subscriptions
+- QR code venue check-in
+- Venue menu integration
+- Profile system with photos, bio, and dating-style details
+- Pull-to-refresh activity feed
+- Match-based chat system with real-time messaging

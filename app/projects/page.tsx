@@ -20,16 +20,16 @@ export default async function ProjectsPage() {
 		return acc;
 	}, {} as Record<string, number>);
 
-	const featured = allProjects.find((project) => project.slug === "gat-dqn")!;
-	const top2 = allProjects.find((project) => project.slug === "plonn")!;
-	const top3 = allProjects.find((project) => project.slug === "molecule-gan")!;
+	const featured = allProjects.find((project) => project.slug === "indoorgeo")!;
+	const top2 = allProjects.find((project) => project.slug === "afrl")!;
+	const top3 = allProjects.find((project) => project.slug === "tabd")!;
 	const sorted = allProjects
 		.filter((p) => p.published)
 		.filter(
 			(project) =>
-				project.slug !== featured.slug &&
-				project.slug !== top2.slug &&
-				project.slug !== top3.slug,
+				project.slug !== featured?.slug &&
+				project.slug !== top2?.slug &&
+				project.slug !== top3?.slug,
 		)
 		.sort(
 			(a, b) =>
@@ -46,7 +46,7 @@ export default async function ProjectsPage() {
 						Projects
 					</h2>
 					<p className="mt-4 text-zinc-400">
-						Research, Projects and Publications
+						Research, Engineering & Products
 					</p>
 				</div>
 				<div className="w-full h-px bg-zinc-800" />
